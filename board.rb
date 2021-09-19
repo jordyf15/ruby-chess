@@ -1,3 +1,5 @@
+require 'colorize'
+
 class Board
   attr_reader :board
   def initialize
@@ -6,6 +8,30 @@ class Board
         {coor: "C#{row}", piece: nil}, {coor: "D#{row}", piece: nil},
         {coor: "E#{row}", piece: nil}, {coor: "F#{row}", piece: nil},
         {coor: "G#{row}", piece: nil}, {coor: "H#{row}", piece: nil},]
+    end
+  end
+
+  def print_board
+    puts "    A   B   C   D   E   F   G   H  "
+    puts "  ---------------------------------"
+    row_mark = ['8', '7', '6', '5', '4', '3', '2', '1']
+    @board.each.with_index do |row, row_idx|
+      print "#{row_mark[row_idx]} |"
+      row.each do |square|
+        print_square square[:piece]
+      end
+      print " #{row_mark[row_idx]}"
+      puts ""
+      puts "  ---------------------------------"
+    end
+    puts "    A   B   C   D   E   F   G   H  "
+  end
+
+  def print_square piece
+    if piece == nil
+      print "   |"
+    else
+      print " #{piece.mark} |"
     end
   end
 end
