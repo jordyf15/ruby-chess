@@ -1,5 +1,7 @@
 class Player
-  def initialize name
+  attr_reader :pieces
+  def initialize name, pieces
     @name = name
+    @pieces = pieces
   end
 end
