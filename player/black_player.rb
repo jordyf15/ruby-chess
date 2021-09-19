@@ -25,5 +25,7 @@ class BlackPlayer < Player
     @pawn6 = Pawn.new({x: 5, y: 1}, "\u2659", name)
     @pawn7 = Pawn.new({x: 6, y: 1}, "\u2659", name)
     @pawn8 = Pawn.new({x: 7, y: 1}, "\u2659", name)
+    @pieces = [@king, @queen, @knight1, @knight2, @rook1, @rook2, @bishop1, @bishop2, 
+    @pawn1, @pawn2, @pawn3, @pawn4, @pawn5, @pawn6, @pawn7, @pawn8]
   end
 end
