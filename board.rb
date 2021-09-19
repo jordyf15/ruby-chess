@@ -11,14 +11,14 @@ class Board
     end
 
     white_player_pieces.each do |piece|
-      x = piece[:coor][:x]
-      y = piece[:coor][:y]
+      x = piece.coor[:x]
+      y = piece.coor[:y]
       @board[x][y] = piece
     end
 
     black_player_pieces.each do |piece|
-      x = piece[:coor][:x]
-      y = piece[:coor][:y]
+      x = piece.coor[:x]
+      y = piece.coor[:y]
       @board[x][y] = piece
     end
   end
