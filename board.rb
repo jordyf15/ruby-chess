@@ -13,13 +13,13 @@ class Board
     white_player_pieces.each do |piece|
       x = piece.coor[:x]
       y = piece.coor[:y]
-      @board[x][y] = piece
+      @board[x][y][:piece] = piece
     end
 
     black_player_pieces.each do |piece|
       x = piece.coor[:x]
       y = piece.coor[:y]
-      @board[x][y] = piece
+      @board[x][y][:piece] = piece
     end
   end
 
@@ -43,7 +43,7 @@ class Board
     if piece == nil
       print "   |"
     else
-      print " #{piece.mark} |"
+      print " #{piece.symbol} |"
     end
   end
 end
