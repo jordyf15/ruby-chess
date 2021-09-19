@@ -1,4 +1,4 @@
-require_relative 'Rook'
+require_relative 'piece'
 
 class Rook < Piece
 
