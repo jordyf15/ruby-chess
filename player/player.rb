@@ -8,6 +8,11 @@ class Player
     @pieces = pieces
   end
 
+  def player_move
+    piece = choose_piece
+    piece.move
+  end
+
   def choose_piece
     print "Please choose the piece you want to move: "
     coor = gets.chomp
