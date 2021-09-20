@@ -9,7 +9,7 @@ class Rook < Piece
     right = right_possible_moves board
 
     possible_moves.concat(up).concat(down).concat(left).concat(right)
-    possible_moves.map{|possible_move| {x: possible_move[0], y: possible_move[1]}}
+      .map{|possible_move| {x: possible_move[0], y: possible_move[1]}}
   end
 
   
