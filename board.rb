@@ -53,6 +53,10 @@ class Board
     after_x = after_coor[:x]
     after_y = after_coor[:y]
     @board[before_x][before_y][:piece] = nil
+    if @board[after_x][after_y][:piece] != nil
+      attacked_piece = @board[after_x][after_y][:piece]
+      attacked_piece.die
+    end
     @board[after_x][after_y][:piece] = piece
   end
 end
