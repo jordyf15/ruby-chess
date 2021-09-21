@@ -11,7 +11,11 @@ class Player
   def player_move board
     piece = choose_piece
     possible_moves = piece.possible_moves(board)
-    p possible_moves.map {|possible_move| coor_display_formatter possible_move} 
+    available_move_options = possible_moves.map {|possible_move| coor_display_formatter possible_move}
+    piece_movement =  move_piece available_move_options
+    result = {before: piece.coor, after: piece_movement, piece: piece}
+    piece.coor = piece_movement
+    result
   end
 
   def move_piece available_move_options
