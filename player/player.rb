@@ -9,6 +9,7 @@ class Player
   end
 
   def player_move board
+    remove_dead_piece
     piece = choose_piece board
     possible_moves = piece.possible_moves(board)
     available_move_options = possible_moves.map {|possible_move| coor_display_formatter possible_move}
@@ -33,7 +34,6 @@ class Player
     print "Please choose the piece you want to move: "
     coor = gets.chomp
     until valid_coor?(coor) && valid_piece?(coor) && moveable_piece?(coor, board)
-      puts "That piece has no legal moves for now." unless moveable_piece?(coor, board)
       print "Please input a valid coordination of one of your piece: "
       coor = gets.chomp
     end
@@ -51,8 +51,14 @@ class Player
   end
 
   def moveable_piece? coor, board
+    return false unless valid_piece?(coor)
     piece = get_player_piece coor
     return true if piece.possible_moves(board).size > 0
+    puts "That piece has no legal moves for now." 
     false
+  end
+
+  def remove_dead_piece 
+    @pieces = @pieces.reject {|piece| piece.alive == false}
   end
 end
