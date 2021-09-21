@@ -46,4 +46,13 @@ class Board
       print " #{piece.symbol} |"
     end
   end
+
+  def update_board before_coor, after_coor, piece
+    before_x = before_coor[:x]
+    before_y = before_coor[:y]
+    after_x = after_coor[:x]
+    after_y = after_coor[:y]
+    @board[before_x][before_y][:piece] = nil
+    @board[after_x][after_y][:piece] = piece
+  end
 end
