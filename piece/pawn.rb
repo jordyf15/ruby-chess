@@ -11,10 +11,8 @@ class Pawn < Piece
   def possible_moves board
     movements = []
     if @owner == 'white' # white pawn
-      puts "white pawn"
       movements = [[-2, 0], [-1, 0], [-1, -1], [-1, 1]]
     elsif @owner == "black" # black pawn
-      puts "black pawn"
       movements = [[2, 0], [1, 0], [1, -1], [1, 1]]
     end
     movements.shift unless @coor == @starting_coor
