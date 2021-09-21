@@ -24,13 +24,16 @@ class Pawn < Piece
         possible_move[:y] <=7 && possible_move[:y] >=0
       end
       .select do |possible_move|
-            board[possible_move[:x]][possible_move[:y]][:piece] == nil || 
-            board[possible_move[:x]][possible_move[:y]][:piece].owner != owner
+        board[possible_move[:x]][possible_move[:y]][:piece] == nil || 
+        board[possible_move[:x]][possible_move[:y]][:piece].owner != owner
       end
       .reject do |possible_move|
         diagonal = board[possible_move[:x]][possible_move[:y]][:piece]
         possible_move[:y] != @coor[:y] && (diagonal == nil || diagonal.owner == @owner)
       end
-      p possible_moves
+      .reject do |possible_move|
+        vertical = board[possible_move[:x]][possible_move[:y]][:piece]
+        possible_move[:x] != @coor[:x] && vertical != nil
+      end
   end
 end
