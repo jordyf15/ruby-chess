@@ -8,8 +8,8 @@ require_relative '../piece/rook'
 
 class WhitePlayer < Player
   def initialize name
-    @king = King.new({x: 7, y: 3}, "\u265B", name)
-    @queen = Queen.new({x: 7, y: 4}, "\u265A", name)
+    king = King.new({x: 7, y: 3}, "\u265A", name)
+    @queen = Queen.new({x: 7, y: 4}, "\u265B", name)
     @knight1 = Knight.new({x: 7, y: 1}, "\u265E", name)
     @knight2 = Knight.new({x: 7, y: 6}, "\u265E", name)
     @rook1 = Rook.new({x: 7, y: 0}, "\u265C", name)
@@ -24,8 +24,8 @@ class WhitePlayer < Player
     @pawn6 = Pawn.new({x: 6, y: 5}, "\u265F", name)
     @pawn7 = Pawn.new({x: 6, y: 6}, "\u265F", name)
     @pawn8 = Pawn.new({x: 6, y: 7}, "\u265F", name)
-    pieces = [@king, @queen, @knight1, @knight2, @rook1, @rook2, @bishop1, @bishop2, 
+    pieces = [king, @queen, @knight1, @knight2, @rook1, @rook2, @bishop1, @bishop2, 
       @pawn1, @pawn2, @pawn3, @pawn4, @pawn5, @pawn6, @pawn7, @pawn8]
-    super name, pieces
+    super name, pieces, king
   end
 end

@@ -3,9 +3,10 @@ require_relative '../util/chess_util'
 class Player
   include ChessUtil
   attr_reader :pieces, :name
-  def initialize name, pieces
+  def initialize name, pieces, king
     @name = name
     @pieces = pieces
+    @king = king
   end
 
   def player_move board
@@ -60,5 +61,9 @@ class Player
 
   def remove_dead_piece 
     @pieces = @pieces.reject {|piece| piece.alive == false}
+  end
+
+  def king_checked? enemy_pieces, board
+    enemy_pieces.any? {|enemy_piece| enemy_piece.possible_moves(board).include? @king.coor}
   end
 end
