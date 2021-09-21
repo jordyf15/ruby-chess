@@ -15,7 +15,9 @@ class Pawn < Piece
     elsif @owner == "black" # black pawn
       movements = [[2, 0], [1, 0], [1, -1], [1, 1]]
     end
-    movements.shift unless @coor == @starting_coor
+    unless @coor == @starting_coor && board[@coor[:x] + movements[1][0]][@coor[:y] + movements[1][1]][:piece] == nil
+      movements.shift
+    end
     possible_moves = movements.map {|movement| {x: @coor[:x]+movement[0] ,y: @coor[:y]+movement[1]}}
       .select do |possible_move|
         possible_move[:x] <=7 && possible_move[:x]>=0 && 
@@ -29,5 +31,6 @@ class Pawn < Piece
         diagonal = board[possible_move[:x]][possible_move[:y]][:piece]
         possible_move[:y] != @coor[:y] && (diagonal == nil || diagonal.owner == @owner)
       end
+      p possible_moves
   end
 end
