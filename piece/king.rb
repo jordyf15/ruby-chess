@@ -1,6 +1,12 @@
 require_relative 'piece'
 
 class King < Piece
+  attr_accessor :check
+  def initialize coor, symbol, owner
+    @check = false
+    super coor, symbol, owner
+  end
+
   def possible_moves board
     movements = [[-1, -1], [-1, 0], [-1, 1], [0, 1], [1, 1], [1, 0], [1, -1], [0, -1]]
     possible_moves = movements.map {|movement| {x: @coor[:x]+movement[0] ,y: @coor[:y]+movement[1]}}
