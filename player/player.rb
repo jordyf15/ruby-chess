@@ -8,17 +8,16 @@ class Player
     @pieces = pieces
   end
 
-  def player_move
+  def player_move board
     piece = choose_piece
-    piece.move
+    possible_moves = piece.possible_moves(board)
+    p possible_moves.map {|possible_move| coor_display_formatter possible_move} 
   end
 
   def choose_piece
     print "Please choose the piece you want to move: "
     coor = gets.chomp
     until valid_coor?(coor) && valid_piece?(coor_converter(coor))
-      p coor
-      p coor_converter(coor)
       print "Please input a valid coordination of one of your piece: "
       coor = gets.chomp
     end
