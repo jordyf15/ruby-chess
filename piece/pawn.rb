@@ -33,7 +33,7 @@ class Pawn < Piece
       end
       .reject do |possible_move|
         vertical = board[possible_move[:x]][possible_move[:y]][:piece]
-        possible_move[:x] != @coor[:x] && vertical != nil
+        possible_move[:x] != @coor[:x] && possible_move[:y] == coor[:y] && vertical != nil
       end
   end
 end
