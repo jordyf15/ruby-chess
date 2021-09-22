@@ -4,14 +4,31 @@ require_relative '../piece/queen'
 require_relative '../piece/bishop'
 require_relative '../piece/rook'
 require_relative '../piece/knight'
+require_relative '../piece/pawn'
 
 class Player
   include ChessUtil
   attr_reader :pieces, :name
-  def initialize name, pieces, king
+  def initialize name
     @name = name
-    @pieces = pieces
-    @king = king
+    @king = name == "white" ? King.new({x: 7, y: 3}, "\u265A", name) : King.new({x: 0, y: 3}, "\u2654", name)
+    @queen = name == "white" ? Queen.new({x: 7, y: 4}, "\u265B", name) : Queen.new({x: 0, y: 4}, "\u2655", name)
+    @knight1 = name == "white" ? Knight.new({x: 7, y: 1}, "\u265E", name) : Knight.new({x: 0, y: 1}, "\u2658", name)
+    @knight2 = name == "white" ? Knight.new({x: 7, y: 6}, "\u265E", name) : Knight.new({x: 0, y: 6}, "\u2658", name)
+    @rook1 = name == "white" ? Rook.new({x: 7, y: 0}, "\u265C", name) : Rook.new({x: 0, y: 0}, "\u2656", name)
+    @rook2 = name == "white" ? Rook.new({x: 7, y: 7}, "\u265C", name) : Rook.new({x: 0, y: 7}, "\u2656", name)
+    @bishop1 = name == "white" ? Bishop.new({x: 7, y: 2}, "\u265D", name) : Bishop.new({x: 0, y: 2}, "\u2657", name)
+    @bishop2 = name == "white" ? Bishop.new({x: 7, y: 5}, "\u265D", name) : Bishop.new({x: 0, y: 5}, "\u2657", name)
+    @pawn1 = name == "white" ? Pawn.new({x: 6, y: 0}, "\u265F", name) : Pawn.new({x: 1, y: 0}, "\u2659", name)
+    @pawn2 = name == "white" ? Pawn.new({x: 6, y: 1}, "\u265F", name) : Pawn.new({x: 1, y: 1}, "\u2659", name)
+    @pawn3 = name == "white" ? Pawn.new({x: 6, y: 2}, "\u265F", name) : Pawn.new({x: 1, y: 2}, "\u2659", name)
+    @pawn4 = name == "white" ? Pawn.new({x: 6, y: 3}, "\u265F", name) : Pawn.new({x: 1, y: 3}, "\u2659", name)
+    @pawn5 = name == "white" ? Pawn.new({x: 6, y: 4}, "\u265F", name) : Pawn.new({x: 1, y: 4}, "\u2659", name)
+    @pawn6 = name == "white" ? Pawn.new({x: 6, y: 5}, "\u265F", name) : Pawn.new({x: 1, y: 5}, "\u2659", name)
+    @pawn7 = name == "white" ? Pawn.new({x: 6, y: 6}, "\u265F", name) : Pawn.new({x: 1, y: 6}, "\u2659", name)
+    @pawn8 = name == "white" ? Pawn.new({x: 6, y: 7}, "\u265F", name) : Pawn.new({x: 1, y: 7}, "\u2659", name)
+    @pieces = [@king, @queen, @knight1, @knight2, @rook1, @rook2, @bishop1, @bishop2, 
+      @pawn1, @pawn2, @pawn3, @pawn4, @pawn5, @pawn6, @pawn7, @pawn8]
   end
 
   def player_move board, enemy_pieces
