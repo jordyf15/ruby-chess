@@ -1,4 +1,5 @@
 require_relative '../util/chess_util'
+require_relative '../piece/king'
 
 class Player
   include ChessUtil
@@ -58,7 +59,8 @@ class Player
     possible_moves = piece.possible_moves(board)
     possible_safe_moves = safe_move(possible_moves, piece, enemy_pieces, board)
     return true if possible_safe_moves.size > 0
-    puts "That piece has no legal moves for now." 
+    puts "That piece has no legal moves for now." if @king.check == false
+    puts "Your king is checked! Protect Your King!!" if @king.check == true 
     false
   end
 
@@ -66,8 +68,8 @@ class Player
     @pieces = @pieces.reject {|piece| piece.alive == false}
   end
 
-  def king_checked? enemy_pieces, board, alter
-    result = enemy_pieces.any? {|enemy_piece| enemy_piece.possible_moves(board).include? @king.coor}
+  def king_checked? enemy_pieces, board, alter, king_coor = @king.coor
+    result = enemy_pieces.any? {|enemy_piece| enemy_piece.possible_moves(board).include? king_coor}
     @king.check = result if alter == true 
     result
   end
@@ -77,7 +79,11 @@ class Player
       predict_result = predict_after_move(board, piece.coor, possible_move, piece, enemy_pieces)
       predict_enemy_pieces = predict_result[:predict_enemy_pieces]
       predict_board = predict_result[:predict_board]
-      king_checked? predict_enemy_pieces, predict_board, false
+      if piece.class == King
+        king_checked? predict_enemy_pieces, predict_board, false, possible_move
+      else
+        king_checked? predict_enemy_pieces, predict_board, false
+      end
     end
   end
 

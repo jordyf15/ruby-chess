@@ -16,7 +16,6 @@ class King < Piece
     possible_moves = possible_moves.select do |possible_move|
       board[possible_move[:x]][possible_move[:y]][:piece] == nil || board[possible_move[:x]][possible_move[:y]][:piece].owner != owner
     end
-
     possible_moves
   end
 end

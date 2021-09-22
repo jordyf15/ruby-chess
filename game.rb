@@ -20,7 +20,7 @@ class Game
   def player_turn
     @board.print_board
     puts "Player #{@current_player.name}'s turn"
-    puts "Your king is checked" if @current_player.king_checked? @enemy_player.pieces, @board.board, true
+    puts "Your king is checked!!" if @current_player.king_checked? @enemy_player.pieces, @board.board, true
     move_result = @current_player.player_move @board.board, @enemy_player.pieces
     @board.update_board(move_result[:before], move_result[:after], move_result[:piece])
     change_turn
