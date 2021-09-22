@@ -27,6 +27,7 @@ class Game
     puts "Your king is checked!!" if @current_player.king_checked? @enemy_player.pieces, @board.board, true
     move_result = @current_player.player_move @board.board, @enemy_player.pieces
     @board.update_board(move_result[:before], move_result[:after], move_result[:piece])
+    @board.change_piece(move_result[:promoted_coor], move_result[:new_piece]) if move_result[:promotion?] == true
     change_turn
   end
 

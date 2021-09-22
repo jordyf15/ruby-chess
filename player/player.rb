@@ -1,5 +1,9 @@
 require_relative '../util/chess_util'
 require_relative '../piece/king'
+require_relative '../piece/queen'
+require_relative '../piece/bishop'
+require_relative '../piece/rook'
+require_relative '../piece/knight'
 
 class Player
   include ChessUtil
@@ -19,6 +23,14 @@ class Player
     piece_movement =  move_piece available_move_options
     result = {before: piece.coor, after: piece_movement, piece: piece}
     piece.coor = piece_movement
+    if piece.class == Pawn
+      if piece.promotable?
+      promote_result = promote_pawn(piece) 
+      result[:promotion?] = true
+      result[:promoted_coor] = promote_result[:coor]
+      result[:new_piece] = promote_result[:new_piece]
+      end
+    end
     result
   end
 
@@ -101,5 +113,32 @@ class Player
     end
     duplicate_board[after_x][after_y][:piece] = piece
     {predict_board: duplicate_board, predict_enemy_pieces: duplicate_enemy_pieces}
+  end
+
+  def promote_pawn piece
+    coor = piece.coor
+    choice = 0
+    puts "To promote your pawn please input 1-4: "
+    puts "1. Queen"
+    puts "2. Bishop"
+    puts "3. Knight"
+    puts "4. Rook"
+    until choice >= 1 && choice <= 4
+      puts "Please input between 1 and 4 to promote this pawn"
+      choice = gets.chomp.to_i
+    end
+    @pieces.delete piece
+    new_piece = case choice 
+    when 1 
+      Queen.new(coor, @name == 'white' ? "\u265B" : "\u2655",@name)
+    when 2
+      Bishop.new(coor, @name == "white" ? "\u265D": "\u2657", @name)
+    when 3
+      Knight.new(coor, @name == "white" ? "\u265E": "\u2658", @name)
+    when 4
+      Rook.new(coor, @name == "white" ? "\u265C" : "\u2656", @name)
+    end
+    @pieces << new_piece
+    {coor: coor, new_piece: new_piece}
   end
 end

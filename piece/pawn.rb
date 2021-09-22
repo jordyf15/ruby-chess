@@ -36,4 +36,9 @@ class Pawn < Piece
         possible_move[:x] != @coor[:x] && possible_move[:y] == coor[:y] && vertical != nil
       end
   end
+
+  def promotable?
+    return true if @coor[:x] == 0 || coor[:x] == 7
+    false
+  end
 end

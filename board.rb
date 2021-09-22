@@ -59,4 +59,10 @@ class Board
     end
     @board[after_x][after_y][:piece] = piece
   end
+
+  def change_piece coor, piece
+    x = coor[:x]
+    y = coor[:y]
+    @board[x][y][:piece] = piece
+  end
 end
