@@ -53,13 +53,13 @@ class Player
     @pieces.select {|piece| piece.coor == formatted_coor}[0]
   end
 
-  def moveable_piece? coor, board, enemy_pieces
+  def moveable_piece? coor, board, enemy_pieces, check_mate_check = false
     return false unless valid_piece?(coor)
     piece = get_player_piece coor
     possible_moves = piece.possible_moves(board)
     possible_safe_moves = safe_move(possible_moves, piece, enemy_pieces, board)
     return true if possible_safe_moves.size > 0
-    puts "That piece has no legal moves for now." if @king.check == false
+    puts "That piece has no legal moves for now." if @king.check == false && check_mate_check == false
     puts "Your king is checked! Protect Your King!!" if @king.check == true 
     false
   end

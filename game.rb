@@ -1,8 +1,10 @@
 require_relative 'player/black_player.rb'
 require_relative 'player/white_player.rb'
 require_relative 'board.rb'
+require_relative 'util/chess_util.rb'
 
 class Game
+  include ChessUtil
   def initialize 
     @white_player = WhitePlayer.new "white"
     @black_player = BlackPlayer.new "black"
@@ -15,6 +17,8 @@ class Game
     until game_over?
       player_turn
     end
+    @board.print_board
+    puts "Checkmate! Player #{@enemy_player.name} wins!!"
   end
 
   def player_turn
@@ -32,6 +36,8 @@ class Game
   end
 
   def game_over?
-    false
+    @current_player.pieces.none? do |piece|
+      @current_player.moveable_piece?(coor_display_formatter(piece.coor), @board.board, @enemy_player.pieces, true)
+    end
   end
 end
