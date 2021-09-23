@@ -1,5 +1,3 @@
-require 'colorize'
-
 class Board
   attr_reader :board
   def initialize white_player_pieces, black_player_pieces
