@@ -1,12 +1,13 @@
 require_relative 'board.rb'
 require_relative 'util/chess_util.rb'
-require_relative 'player/player'
+require_relative 'player/human_player'
+require_relative 'player/computer_player'
 
 class Game
   include ChessUtil
-  def initialize 
-    @white_player = Player.new "white"
-    @black_player = Player.new "black"
+  def initialize gameplay_option
+    @white_player = HumanPlayer.new "white"
+    @black_player = gameplay_option == 1 ? ComputerPlayer.new('black') : HumanPlayer.new('black')
     @board = Board.new @white_player.pieces, @black_player.pieces
     @current_player = @white_player
     @enemy_player = @black_player
