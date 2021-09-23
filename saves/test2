@@ -1,0 +1,399 @@
+--- !ruby/object:Game
+white_player: &49 !ruby/object:HumanPlayer
+  name: white
+  king: &8 !ruby/object:King
+    check: false
+    coor:
+      :x: 7
+      :y: 3
+    symbol: "♚"
+    owner: white
+    alive: true
+  queen: &9 !ruby/object:Queen
+    coor:
+      :x: 7
+      :y: 4
+    symbol: "♛"
+    owner: white
+    alive: true
+  knight1: &10 !ruby/object:Knight
+    coor:
+      :x: 7
+      :y: 1
+    symbol: "♞"
+    owner: white
+    alive: true
+  knight2: &11 !ruby/object:Knight
+    coor:
+      :x: 7
+      :y: 6
+    symbol: "♞"
+    owner: white
+    alive: true
+  rook1: &12 !ruby/object:Rook
+    coor:
+      :x: 7
+      :y: 0
+    symbol: "♜"
+    owner: white
+    alive: true
+  rook2: &13 !ruby/object:Rook
+    coor:
+      :x: 7
+      :y: 7
+    symbol: "♜"
+    owner: white
+    alive: true
+  bishop1: &14 !ruby/object:Bishop
+    coor:
+      :x: 7
+      :y: 2
+    symbol: "♝"
+    owner: white
+    alive: true
+  bishop2: &15 !ruby/object:Bishop
+    coor:
+      :x: 7
+      :y: 5
+    symbol: "♝"
+    owner: white
+    alive: true
+  pawn1: &16 !ruby/object:Pawn
+    coor: &1
+      :x: 6
+      :y: 0
+    starting_coor: *1
+    symbol: "♟"
+    owner: white
+  pawn2: &17 !ruby/object:Pawn
+    coor: &2
+      :x: 6
+      :y: 1
+    starting_coor: *2
+    symbol: "♟"
+    owner: white
+  pawn3: &18 !ruby/object:Pawn
+    coor: &3
+      :x: 6
+      :y: 2
+    starting_coor: *3
+    symbol: "♟"
+    owner: white
+  pawn4: &19 !ruby/object:Pawn
+    coor:
+      :x: 4
+      :y: 3
+    starting_coor:
+      :x: 6
+      :y: 3
+    symbol: "♟"
+    owner: white
+  pawn5: &20 !ruby/object:Pawn
+    coor: &4
+      :x: 6
+      :y: 4
+    starting_coor: *4
+    symbol: "♟"
+    owner: white
+  pawn6: &21 !ruby/object:Pawn
+    coor: &5
+      :x: 6
+      :y: 5
+    starting_coor: *5
+    symbol: "♟"
+    owner: white
+  pawn7: &22 !ruby/object:Pawn
+    coor: &6
+      :x: 6
+      :y: 6
+    starting_coor: *6
+    symbol: "♟"
+    owner: white
+  pawn8: &23 !ruby/object:Pawn
+    coor: &7
+      :x: 6
+      :y: 7
+    starting_coor: *7
+    symbol: "♟"
+    owner: white
+  pieces:
+  - *8
+  - *9
+  - *10
+  - *11
+  - *12
+  - *13
+  - *14
+  - *15
+  - *16
+  - *17
+  - *18
+  - *19
+  - *20
+  - *21
+  - *22
+  - *23
+black_player: &48 !ruby/object:HumanPlayer
+  name: black
+  king: &32 !ruby/object:King
+    check: false
+    coor:
+      :x: 0
+      :y: 3
+    symbol: "♔"
+    owner: black
+    alive: true
+  queen: &33 !ruby/object:Queen
+    coor:
+      :x: 0
+      :y: 4
+    symbol: "♕"
+    owner: black
+    alive: true
+  knight1: &34 !ruby/object:Knight
+    coor:
+      :x: 0
+      :y: 1
+    symbol: "♘"
+    owner: black
+    alive: true
+  knight2: &35 !ruby/object:Knight
+    coor:
+      :x: 0
+      :y: 6
+    symbol: "♘"
+    owner: black
+    alive: true
+  rook1: &36 !ruby/object:Rook
+    coor:
+      :x: 0
+      :y: 0
+    symbol: "♖"
+    owner: black
+    alive: true
+  rook2: &37 !ruby/object:Rook
+    coor:
+      :x: 0
+      :y: 7
+    symbol: "♖"
+    owner: black
+    alive: true
+  bishop1: &38 !ruby/object:Bishop
+    coor:
+      :x: 0
+      :y: 2
+    symbol: "♗"
+    owner: black
+    alive: true
+  bishop2: &39 !ruby/object:Bishop
+    coor:
+      :x: 0
+      :y: 5
+    symbol: "♗"
+    owner: black
+    alive: true
+  pawn1: &40 !ruby/object:Pawn
+    coor: &24
+      :x: 1
+      :y: 0
+    starting_coor: *24
+    symbol: "♙"
+    owner: black
+  pawn2: &41 !ruby/object:Pawn
+    coor: &25
+      :x: 1
+      :y: 1
+    starting_coor: *25
+    symbol: "♙"
+    owner: black
+  pawn3: &42 !ruby/object:Pawn
+    coor: &26
+      :x: 1
+      :y: 2
+    starting_coor: *26
+    symbol: "♙"
+    owner: black
+  pawn4: &43 !ruby/object:Pawn
+    coor: &27
+      :x: 1
+      :y: 3
+    starting_coor: *27
+    symbol: "♙"
+    owner: black
+  pawn5: &44 !ruby/object:Pawn
+    coor: &28
+      :x: 1
+      :y: 4
+    starting_coor: *28
+    symbol: "♙"
+    owner: black
+  pawn6: &45 !ruby/object:Pawn
+    coor: &29
+      :x: 1
+      :y: 5
+    starting_coor: *29
+    symbol: "♙"
+    owner: black
+  pawn7: &46 !ruby/object:Pawn
+    coor: &30
+      :x: 1
+      :y: 6
+    starting_coor: *30
+    symbol: "♙"
+    owner: black
+  pawn8: &47 !ruby/object:Pawn
+    coor: &31
+      :x: 1
+      :y: 7
+    starting_coor: *31
+    symbol: "♙"
+    owner: black
+  pieces:
+  - *32
+  - *33
+  - *34
+  - *35
+  - *36
+  - *37
+  - *38
+  - *39
+  - *40
+  - *41
+  - *42
+  - *43
+  - *44
+  - *45
+  - *46
+  - *47
+board: !ruby/object:Board
+  board:
+  - - :coor: A8
+      :piece: *36
+    - :coor: B8
+      :piece: *34
+    - :coor: C8
+      :piece: *38
+    - :coor: D8
+      :piece: *32
+    - :coor: E8
+      :piece: *33
+    - :coor: F8
+      :piece: *39
+    - :coor: G8
+      :piece: *35
+    - :coor: H8
+      :piece: *37
+  - - :coor: A7
+      :piece: *40
+    - :coor: B7
+      :piece: *41
+    - :coor: C7
+      :piece: *42
+    - :coor: D7
+      :piece: *43
+    - :coor: E7
+      :piece: *44
+    - :coor: F7
+      :piece: *45
+    - :coor: G7
+      :piece: *46
+    - :coor: H7
+      :piece: *47
+  - - :coor: A6
+      :piece: 
+    - :coor: B6
+      :piece: 
+    - :coor: C6
+      :piece: 
+    - :coor: D6
+      :piece: 
+    - :coor: E6
+      :piece: 
+    - :coor: F6
+      :piece: 
+    - :coor: G6
+      :piece: 
+    - :coor: H6
+      :piece: 
+  - - :coor: A5
+      :piece: 
+    - :coor: B5
+      :piece: 
+    - :coor: C5
+      :piece: 
+    - :coor: D5
+      :piece: 
+    - :coor: E5
+      :piece: 
+    - :coor: F5
+      :piece: 
+    - :coor: G5
+      :piece: 
+    - :coor: H5
+      :piece: 
+  - - :coor: A4
+      :piece: 
+    - :coor: B4
+      :piece: 
+    - :coor: C4
+      :piece: 
+    - :coor: D4
+      :piece: *19
+    - :coor: E4
+      :piece: 
+    - :coor: F4
+      :piece: 
+    - :coor: G4
+      :piece: 
+    - :coor: H4
+      :piece: 
+  - - :coor: A3
+      :piece: 
+    - :coor: B3
+      :piece: 
+    - :coor: C3
+      :piece: 
+    - :coor: D3
+      :piece: 
+    - :coor: E3
+      :piece: 
+    - :coor: F3
+      :piece: 
+    - :coor: G3
+      :piece: 
+    - :coor: H3
+      :piece: 
+  - - :coor: A2
+      :piece: *16
+    - :coor: B2
+      :piece: *17
+    - :coor: C2
+      :piece: *18
+    - :coor: D2
+      :piece: 
+    - :coor: E2
+      :piece: *20
+    - :coor: F2
+      :piece: *21
+    - :coor: G2
+      :piece: *22
+    - :coor: H2
+      :piece: *23
+  - - :coor: A1
+      :piece: *12
+    - :coor: B1
+      :piece: *10
+    - :coor: C1
+      :piece: *14
+    - :coor: D1
+      :piece: *8
+    - :coor: E1
+      :piece: *9
+    - :coor: F1
+      :piece: *15
+    - :coor: G1
+      :piece: *11
+    - :coor: H1
+      :piece: *13
+current_player: *48
+enemy_player: *49

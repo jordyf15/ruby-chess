@@ -34,6 +34,7 @@ class Player
   def player_move board, enemy_pieces
     remove_dead_piece
     piece = choose_piece(board, enemy_pieces)
+    return "save game" if piece == "save game"
     possible_moves = piece.possible_moves(board)
     possible_safe_moves = safe_move(possible_moves, piece, enemy_pieces, board)
     available_move_options = possible_safe_moves.map {|possible_move| coor_display_formatter possible_move}

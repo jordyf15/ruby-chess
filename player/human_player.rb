@@ -2,8 +2,10 @@ require_relative 'player'
 
 class HumanPlayer < Player
   def choose_piece board, enemy_pieces 
-    print "Please choose the piece you want to move: "
+    print "Please choose the piece you want to move or 'save' if you want to save the game: "
     coor = gets.chomp
+    return "save game" if coor == "save"
+    coor = coor.upcase
     until valid_coor?(coor) && valid_piece?(coor) && moveable_piece?(coor, board, enemy_pieces)
       print "Please input a valid coordination of one of your piece: "
       coor = gets.chomp
