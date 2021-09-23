@@ -126,7 +126,7 @@ class Player
     duplicate_board[before_x][before_y][:piece] = nil
     if duplicate_board[after_x][after_y][:piece] != nil
       attacked_piece = duplicate_board[after_x][after_y][:piece]
-      duplicate_enemy_pieces.delete(attacked_piece)
+      duplicate_enemy_pieces.delete_if {|duplicate_enemy_piece| duplicate_enemy_piece.coor == attacked_piece.coor}
     end
     duplicate_board[after_x][after_y][:piece] = piece
     {predict_board: duplicate_board, predict_enemy_pieces: duplicate_enemy_pieces}
