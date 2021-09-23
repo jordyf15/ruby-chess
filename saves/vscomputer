@@ -81,8 +81,8 @@ white_player: &47 !ruby/object:HumanPlayer
     owner: white
   pawn4: &19 !ruby/object:Pawn
     coor:
-      :x: 3
-      :y: 4
+      :x: 5
+      :y: 3
     starting_coor:
       :x: 6
       :y: 3
@@ -133,7 +133,7 @@ white_player: &47 !ruby/object:HumanPlayer
   - *21
   - *22
   - *23
-black_player: &46 !ruby/object:HumanPlayer
+black_player: &48 !ruby/object:ComputerPlayer
   name: black
   king: &31 !ruby/object:King
     check: false
@@ -193,58 +193,57 @@ black_player: &46 !ruby/object:HumanPlayer
     owner: black
     alive: true
   pawn1: &39 !ruby/object:Pawn
-    coor: &24
+    coor:
+      :x: 3
+      :y: 0
+    starting_coor:
       :x: 1
       :y: 0
-    starting_coor: *24
     symbol: "♙"
     owner: black
   pawn2: &40 !ruby/object:Pawn
-    coor: &25
+    coor: &24
       :x: 1
       :y: 1
-    starting_coor: *25
+    starting_coor: *24
     symbol: "♙"
     owner: black
   pawn3: &41 !ruby/object:Pawn
-    coor: &26
+    coor: &25
       :x: 1
       :y: 2
-    starting_coor: *26
+    starting_coor: *25
     symbol: "♙"
     owner: black
   pawn4: &42 !ruby/object:Pawn
-    coor: &27
+    coor: &26
       :x: 1
       :y: 3
+    starting_coor: *26
+    symbol: "♙"
+    owner: black
+  pawn5: &43 !ruby/object:Pawn
+    coor: &27
+      :x: 1
+      :y: 4
     starting_coor: *27
     symbol: "♙"
     owner: black
-  pawn5: !ruby/object:Pawn
-    coor:
-      :x: 3
-      :y: 4
-    starting_coor:
-      :x: 1
-      :y: 4
-    symbol: "♙"
-    owner: black
-    alive: false
-  pawn6: &43 !ruby/object:Pawn
+  pawn6: &44 !ruby/object:Pawn
     coor: &28
       :x: 1
       :y: 5
     starting_coor: *28
     symbol: "♙"
     owner: black
-  pawn7: &44 !ruby/object:Pawn
+  pawn7: &45 !ruby/object:Pawn
     coor: &29
       :x: 1
       :y: 6
     starting_coor: *29
     symbol: "♙"
     owner: black
-  pawn8: &45 !ruby/object:Pawn
+  pawn8: &46 !ruby/object:Pawn
     coor: &30
       :x: 1
       :y: 7
@@ -267,6 +266,7 @@ black_player: &46 !ruby/object:HumanPlayer
   - *43
   - *44
   - *45
+  - *46
 board: !ruby/object:Board
   board:
   - - :coor: A8
@@ -286,7 +286,7 @@ board: !ruby/object:Board
     - :coor: H8
       :piece: *36
   - - :coor: A7
-      :piece: *39
+      :piece: 
     - :coor: B7
       :piece: *40
     - :coor: C7
@@ -294,13 +294,13 @@ board: !ruby/object:Board
     - :coor: D7
       :piece: *42
     - :coor: E7
-      :piece: 
-    - :coor: F7
       :piece: *43
-    - :coor: G7
+    - :coor: F7
       :piece: *44
-    - :coor: H7
+    - :coor: G7
       :piece: *45
+    - :coor: H7
+      :piece: *46
   - - :coor: A6
       :piece: 
     - :coor: B6
@@ -318,7 +318,7 @@ board: !ruby/object:Board
     - :coor: H6
       :piece: 
   - - :coor: A5
-      :piece: 
+      :piece: *39
     - :coor: B5
       :piece: 
     - :coor: C5
@@ -326,7 +326,7 @@ board: !ruby/object:Board
     - :coor: D5
       :piece: 
     - :coor: E5
-      :piece: *19
+      :piece: 
     - :coor: F5
       :piece: 
     - :coor: G5
@@ -356,7 +356,7 @@ board: !ruby/object:Board
     - :coor: C3
       :piece: 
     - :coor: D3
-      :piece: 
+      :piece: *19
     - :coor: E3
       :piece: 
     - :coor: F3
@@ -397,5 +397,5 @@ board: !ruby/object:Board
       :piece: *11
     - :coor: H1
       :piece: *13
-current_player: *46
-enemy_player: *47
+current_player: *47
+enemy_player: *48
